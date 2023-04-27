@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 //import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import Inicio from "./pages/Inicio";
-
+import Navbar from "./components/Navbar";
 
 const App = () => {
-/*{  const [user, setUser] = useState({});
+  /*{  const [user, setUser] = useState({});
 
   useEffect(() => {
     axios
@@ -17,16 +16,15 @@ const App = () => {
       });
   }, []);}*/
 
-  console.log("acaa", user);
+  // console.log("acaa", user);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Navbar />} />
       </Routes>
     </>
   );
 };
 
 export default App;
-
