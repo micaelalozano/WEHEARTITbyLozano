@@ -1,0 +1,8 @@
+.recent {
+  display: flex;
+  padding: 0em 3em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  color: #4a4a4a;
+}
