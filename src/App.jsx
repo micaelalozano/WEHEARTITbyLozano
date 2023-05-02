@@ -1,7 +1,7 @@
 import React from "react";
 //import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Inicio from "./pages/Inicio";
 
 const App = () => {
   /*{  const [user, setUser] = useState({});
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navbar />} />
+        <Route path="/" element={<Inicio />} />
       </Routes>
     </>
   );
