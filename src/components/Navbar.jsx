@@ -10,8 +10,8 @@ import { RiChat3Line } from "react-icons/ri";
 import { BiBell } from "react-icons/bi";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
-//Estilos
 import heart from "../assets/heart.png";
+//Estilos
 import "../estilos/navbar.css";
 
 const Navbar = () => {
