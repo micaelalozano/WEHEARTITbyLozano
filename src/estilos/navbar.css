@@ -178,3 +178,9 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 1150px) {
+  .nav-contenedor {
+    display: none;
+  }
+}

@@ -1,9 +1,10 @@
 .contenedor-recientes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 22px;
   flex-direction: row;
   padding: 0em 3em;
+  margin-bottom: 2.5em;
 }
 
 .contenedor-uno {
@@ -23,14 +24,14 @@
   justify-content: space-between;
 }
 
-.logo-recent{
+.logo-recent {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 2px solid white;
 }
 
-.hearts{
+.hearts {
   padding-top: 8px;
   padding-bottom: 3px;
   padding-right: 5px;
@@ -69,16 +70,17 @@
   font-size: 13px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .contenedor-recientes {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .contenedor-recientes {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 0em 0.5em;
   }
 }

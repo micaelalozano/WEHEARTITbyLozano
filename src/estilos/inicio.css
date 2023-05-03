@@ -1,8 +1,57 @@
 .recent {
   display: flex;
-  padding: 0em 3em;
+  padding: 0em 2.3em;
   margin-top: 2em;
   margin-bottom: 0.5em;
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: #4a4a4a;
+}
+
+.orden {
+  display: flex;
+  align-items: center;
+  margin: 0em 3em;
+  margin-bottom: 2em;
+  padding: 0.7em 0em;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.171);
+}
+
+.o-1 {
+  font-size: 1.3em;
+  color: #4a4a4a;
+  margin-right: 50px;
+}
+
+.o-2 {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-right: 25px;
+}
+
+@media screen and (max-width: 1100px) {
+  .o-2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recent {
+    padding: 0em 0.5em;
+    font-size: 1.1em;
+  }
+
+  .orden {
+    margin: 0em 0.5em;
+    margin-bottom: 2em;
+  }
+
+  .o-1 {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .recent {
+    margin-top: 1.5em;
+  }
 }
