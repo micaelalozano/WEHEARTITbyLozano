@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import heart from "../assets/heart.png";
+//Iconos
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";
@@ -10,7 +13,6 @@ import { RiChat3Line } from "react-icons/ri";
 import { BiBell } from "react-icons/bi";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
-import heart from "../assets/heart.png";
 //Estilos
 import "../estilos/navbar.css";
 
@@ -90,9 +92,11 @@ const Navbar = () => {
             </span>
           </li>
           <li className="nav-li-icons">
-            <span className="tooltip" mensaje="Iniciar Sesión">
-              <RiLoginCircleLine size={21} style={{ color: "#4a4a4a" }} />
-            </span>
+            <Link to="/login">
+              <span className="tooltip" mensaje="Iniciar Sesión">
+                <RiLoginCircleLine size={21} style={{ color: "#4a4a4a" }} />
+              </span>
+            </Link>
           </li>
           <li className="nav-li-icons">
             <IoMdArrowDropdown size={21} style={{ color: "#4a4a4a" }} />

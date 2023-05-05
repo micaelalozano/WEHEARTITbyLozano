@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
+//Icons
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import CloseIcon from "@mui/icons-material/Close";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+import WebIcon from "@mui/icons-material/Web";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 //Estilos
 import "../estilos/navCelular.css";
 
@@ -31,13 +39,64 @@ const NavCelular = () => {
                 alt="Pic"
               />
               <button className="btn-close" onClick={handleClose}>
-                <CloseIcon
-                  sx={{ fontSize: 20 }}
-                  style={{ color: "#ffffff" }}
-                />
+                <CloseIcon sx={{ fontSize: 20 }} style={{ color: "#ffffff" }} />
               </button>
               <button className="btn-sesion">Iniciar Sesión</button>
             </div>
+            <ul className="ul-side">
+              <li className="li-p">
+                <HomeOutlinedIcon
+                  sx={{ fontSize: 18 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Inicio</p>
+              </li>
+              <li className="li-p">
+                <GridViewOutlinedIcon
+                  sx={{ fontSize: 16 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Descubre</p>
+              </li>
+              <li className="li-p">
+                <WebIcon sx={{ fontSize: 17 }} style={{ color: "#4a4a4a" }} />
+                <p className="li-x">Colecciones</p>
+              </li>
+              <li className="li-p">
+                <PeopleAltOutlinedIcon
+                  sx={{ fontSize: 18 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Gente</p>
+              </li>
+              <li className="li-p">
+                <AddOutlinedIcon
+                  sx={{ fontSize: 19 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Agrega Imágenes</p>
+              </li>
+              <li className="li-p">
+                <NotificationsNoneOutlinedIcon
+                  sx={{ fontSize: 19 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Notificaciones</p>
+              </li>
+              <li className="li-p">
+                <EmailOutlinedIcon
+                  sx={{ fontSize: 18 }}
+                  style={{ color: "#4a4a4a" }}
+                />
+                <p className="li-x">Mensajes</p>
+              </li>
+            </ul>
+            <ul className="ul-side-dos">
+              <li className="li-dos-color">¡Suscríbete ahora!</li>
+              <li className="li-dos">Encontrar a mis amigos</li>
+              <li className="li-dos">Invitar amigos</li>
+              <li className="li-dos">Configuraciones</li>
+            </ul>
           </div>
         </Modal>
         <input
