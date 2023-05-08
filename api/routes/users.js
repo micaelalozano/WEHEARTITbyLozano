@@ -6,12 +6,30 @@ const router = express.Router();
 
 //Crear usuario:
 router.post("/", (req, res) => {
-  const { username, name, lastname, email, password, imagen } = req.body;
-  Users.create({ username, name, lastname, email, password, imagen }).then(
-    (data) => {
-      res.status(201).send(data);
-    }
-  );
+  const {
+    username,
+    name,
+    lastname,
+    email,
+    password,
+    imagen,
+    portada,
+    biografia,
+    ubicacion,
+  } = req.body;
+  Users.create({
+    username,
+    name,
+    lastname,
+    email,
+    password,
+    imagen,
+    portada,
+    biografia,
+    ubicacion,
+  }).then((data) => {
+    res.status(201).send(data);
+  });
 });
 
 //Buscar todos los usuarios:
@@ -30,12 +48,22 @@ router.get("/:username", (req, res) => {
   });
 });
 
-//Actualizar usuarios:
+//Actualizar usuarios (Cambiar Foto de perfil):
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   const { imagen } = req.body;
 
   Users.update({ imagen }, { where: { id } }).then((data) => {
+    res.status(200).send(data);
+  });
+});
+
+//Actualizar usuarios (Cambiar Foto de portada):
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { portada } = req.body;
+
+  Users.update({ portada }, { where: { id } }).then((data) => {
     res.status(200).send(data);
   });
 });
@@ -51,9 +79,9 @@ router.delete("/:id", (req, res) => {
 
 //Rutas para hacer el login con Auth:
 router.post("/login", (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  Users.findOne({ where: { username } }).then((user) => {
+  Users.findOne({ where: { email } }).then((user) => {
     if (!user) return res.sendStatus(401);
     user.validatePassword(password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
@@ -64,6 +92,9 @@ router.post("/login", (req, res) => {
         lastname: user.lastname,
         email: user.email,
         imagen: user.imagen,
+        portada: user.portada,
+        biografia: user.biografia,
+        ubicacion: user.ubicacion,
       };
 
       const token = generateToken(payload);

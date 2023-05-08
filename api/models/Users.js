@@ -41,6 +41,18 @@ Users.init(
       type: Sequelize.DataTypes.TEXT,
       allowNull: true,
     },
+    portada: {
+      type: Sequelize.DataTypes.TEXT,
+      allowNull: true,
+    },
+    biografia: {
+      type: Sequelize.DataTypes.TEXT,
+      allowNull: true,
+    },
+    ubicacion: {
+      type: Sequelize.DataTypes.TEXT,
+      allowNull: true,
+    },
     salt: {
       type: Sequelize.DataTypes.STRING,
     },
