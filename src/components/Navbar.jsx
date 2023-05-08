@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import heart from "../assets/heart.png";
 //Iconos
@@ -17,6 +18,26 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import "../estilos/navbar.css";
 
 const Navbar = () => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    axios
+      .get("/api/users/ruta/perfil")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      });
+  }, []);
+
+  const handleLogout = () => {
+    axios
+      .post("/api/users/logout")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      });
+  };
+
   return (
     <>
       <div className="nav-contenedor">
@@ -91,13 +112,32 @@ const Navbar = () => {
               <BiBell size={21} style={{ color: "#4a4a4a" }} />
             </span>
           </li>
-          <li className="nav-li-icons">
-            <Link to="/login">
-              <span className="tooltip" mensaje="Iniciar Sesión">
-                <RiLoginCircleLine size={21} style={{ color: "#4a4a4a" }} />
-              </span>
-            </Link>
-          </li>
+          {user.username ? (
+            <>
+              <li className="nav-li-icons">
+                <img
+                  onClick={handleLogout}
+                  className="img-perfil"
+                  src={
+                    user.imagen
+                      ? user.imagen
+                      : "https://i.pinimg.com/236x/d1/6d/cc/d16dcc87643c7a4abffcaeb50fb389bd.jpg"
+                  }
+                  alt="."
+                />
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-li-icons">
+                <Link to="/login">
+                  <span className="tooltip" mensaje="Iniciar Sesión">
+                    <RiLoginCircleLine size={21} style={{ color: "#4a4a4a" }} />
+                  </span>
+                </Link>
+              </li>{" "}
+            </>
+          )}
           <li className="nav-li-icons">
             <IoMdArrowDropdown size={21} style={{ color: "#4a4a4a" }} />
           </li>

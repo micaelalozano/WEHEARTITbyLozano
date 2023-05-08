@@ -129,6 +129,32 @@
   cursor: pointer;
 }
 
+.modal-profile {
+  position: absolute;
+  bottom: 7%;
+  left: 5%;
+}
+
+.modal-img-perfil {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  margin-bottom: 5px;
+}
+
+.modal-username {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 3px;
+  color: white;
+}
+
+.modal-fullname {
+  text-transform: capitalize;
+  font-size: 13px;
+  color: white;
+}
+
 .ul-side {
   padding-left: 0.8em;
   padding-top: 20px;

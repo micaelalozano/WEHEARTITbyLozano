@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 //Icons
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -15,11 +17,21 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import "../estilos/navCelular.css";
 
 const NavCelular = () => {
+  const [user, setUser] = useState({});
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+  useEffect(() => {
+    axios
+      .get("/api/users/ruta/perfil")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      });
+  }, []);
 
   return (
     <>
@@ -41,7 +53,31 @@ const NavCelular = () => {
               <button className="btn-close" onClick={handleClose}>
                 <CloseIcon sx={{ fontSize: 20 }} style={{ color: "#ffffff" }} />
               </button>
-              <button className="btn-sesion">Iniciar Sesión</button>
+              {user.username ? (
+                <>
+                  <div className="modal-profile">
+                    <img
+                      className="modal-img-perfil"
+                      src={
+                        user.imagen
+                          ? user.imagen
+                          : "https://i.pinimg.com/236x/d1/6d/cc/d16dcc87643c7a4abffcaeb50fb389bd.jpg"
+                      }
+                      alt="."
+                    />
+                    <p className="modal-username"> {user.username} </p>
+                    <p className="modal-fullname">
+                      {user.name} {user.lastname}{" "}
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <button className="btn-sesion">Iniciar Sesión</button>
+                  </Link>
+                </>
+              )}
             </div>
             <ul className="ul-side">
               <li className="li-p">
@@ -108,7 +144,19 @@ const NavCelular = () => {
           <MoreVertIcon sx={{ fontSize: 18 }} style={{ color: "#727272" }} />
         </button>
         <ul className={click ? "sub-menu" : "none"}>
-          <li className="sub-li">Iniciar Sesión</li>
+          {user.username ? (
+            <>
+              <Link to="/login">
+                <li className="sub-li">Cerrar Sesión</li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <li className="sub-li">Iniciar Sesión</li>
+              </Link>
+            </>
+          )}
           <li className="sub-li-x">Opinión</li>
         </ul>
       </div>

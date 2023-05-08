@@ -1,4 +1,5 @@
 const { validateToken } = require("../utils/token");
+const Users = require("../models/Users");
 
 function validateAuth(req, res, next) {
   const token = req.cookies.token;
@@ -7,9 +8,12 @@ function validateAuth(req, res, next) {
   const { user } = validateToken(token);
   if (!user) return res.sendStatus(401);
 
-  req.user = user;
+  Users.findOne({ where: { username: user.username } }).then((dbUser) => {
+    if (!dbUser) return res.sendStatus(401);
 
-  next();
+    req.user = dbUser.toJSON();
+    next();
+  });
 }
 
 module.exports = { validateAuth };
