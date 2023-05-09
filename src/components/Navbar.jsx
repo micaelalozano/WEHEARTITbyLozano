@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import heart from "../assets/heart.png";
+import { useNavigate } from "react-router";
 //Iconos
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
@@ -18,7 +19,13 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import "../estilos/navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
+  const [click, setClick] = useState(false);
+  const [secondClick, setSecondClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const handleSecondClick = () => setSecondClick(!secondClick);
 
   useEffect(() => {
     axios
@@ -35,6 +42,7 @@ const Navbar = () => {
       .then((res) => res.data)
       .then((user) => {
         setUser(user);
+        navigate("/");
       });
   };
 
@@ -114,9 +122,8 @@ const Navbar = () => {
           </li>
           {user.username ? (
             <>
-              <li className="nav-li-icons">
+              <li className="nav-li-icons" onClick={handleClick}>
                 <img
-                  onClick={handleLogout}
                   className="img-perfil"
                   src={
                     user.imagen
@@ -125,6 +132,19 @@ const Navbar = () => {
                   }
                   alt="."
                 />
+                <ul className={click ? "sub-menu-dos" : "none"}>
+                  <li className="sub-li-dos">Mi Lienzo</li>
+                  <li className="sub-li-dos">Mis Colecciones</li>
+                  <li className="sub-li-dos">Mis Publicaciones</li>
+                  <hr className="hr" />
+                  <li className="sub-li-dos">Configuraciones</li>
+                  <li className="sub-li-dos">Encontrar a mis amigos</li>
+                  <li className="sub-li-dos">Lenguaje</li>
+                  <hr className="hr" />
+                  <button className="btn-cerrar-sesion" onClick={handleLogout}>
+                    Cerrar Sesión
+                  </button>
+                </ul>
               </li>
             </>
           ) : (
@@ -139,8 +159,24 @@ const Navbar = () => {
             </>
           )}
           <li className="nav-li-icons">
-            <IoMdArrowDropdown size={21} style={{ color: "#4a4a4a" }} />
+            <IoMdArrowDropdown
+              size={21}
+              style={{ color: "#4a4a4a" }}
+              onClick={handleSecondClick}
+            />
           </li>
+          <ul className={secondClick ? "sub-menu-tres" : "none"}>
+            <li className="sub-li-dos">Acerca de We Heart It</li>
+            <hr className="hr" />
+            <button className="btn-descarga" onClick={handleLogout}>
+              Descargar la aplicación
+            </button>
+            <hr className="hr" />
+            <li className="sub-li-dos">Condiciones</li>
+            <li className="sub-li-dos">Privacidad</li>
+            <li className="sub-li-dos">Contactanos</li>
+            <li className="sub-li-dos">Ayuda</li>
+          </ul>
         </ul>
       </div>
     </>
