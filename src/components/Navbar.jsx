@@ -59,6 +59,7 @@ const Navbar = () => {
             />
             <p className="nav-p">Inicio</p>
           </li>
+          <Link to="/">
           <li className="nav-li">
             <GridViewOutlinedIcon
               sx={{ fontSize: 21 }}
@@ -66,6 +67,7 @@ const Navbar = () => {
             />
             <p className="nav-p">Descubre</p>
           </li>
+          </Link>
           <li className="nav-li">
             <LocalFloristOutlinedIcon
               sx={{ fontSize: 21 }}
@@ -133,7 +135,9 @@ const Navbar = () => {
                   alt="."
                 />
                 <ul className={click ? "sub-menu-dos" : "none"}>
-                  <li className="sub-li-dos">Mi Lienzo</li>
+                  <Link to="/mi_lienzo">
+                    <li className="sub-li-dos">Mi Lienzo</li>
+                  </Link>
                   <li className="sub-li-dos">Mis Colecciones</li>
                   <li className="sub-li-dos">Mis Publicaciones</li>
                   <hr className="hr" />

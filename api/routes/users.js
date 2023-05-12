@@ -59,7 +59,7 @@ router.put("/:id", (req, res) => {
 });
 
 //Actualizar usuarios (Cambiar Foto de portada):
-router.put("/:id", (req, res) => {
+router.put("/cambiar_portada/:id", (req, res) => {
   const { id } = req.params;
   const { portada } = req.body;
 

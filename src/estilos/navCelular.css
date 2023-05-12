@@ -130,6 +130,7 @@
 }
 
 .modal-profile {
+  width: 95%;
   position: absolute;
   bottom: 7%;
   left: 5%;

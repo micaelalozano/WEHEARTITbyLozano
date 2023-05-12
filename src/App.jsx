@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import MiLienzo from "./pages/MiLienzo";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={<Inicio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registrarme" element={<Register />} />
+        <Route path="/mi_lienzo" element={<MiLienzo />} />
       </Routes>
     </>
   );

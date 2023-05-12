@@ -47,14 +47,19 @@ const NavCelular = () => {
             <div className="first-modal">
               <img
                 className="img-modal"
-                src="https://p4.wallpaperbetter.com/wallpaper/539/443/704/pink-yellow-gradient-hd-wallpaper-preview.jpg"
-                alt="Pic"
+                src={
+                  user.portada
+                    ? user.portada
+                    : "https://p4.wallpaperbetter.com/wallpaper/539/443/704/pink-yellow-gradient-hd-wallpaper-preview.jpg"
+                }
+                alt=""
               />
               <button className="btn-close" onClick={handleClose}>
                 <CloseIcon sx={{ fontSize: 20 }} style={{ color: "#ffffff" }} />
               </button>
               {user.username ? (
                 <>
+                <Link to="/mi_lienzo">
                   <div className="modal-profile">
                     <img
                       className="modal-img-perfil"
@@ -70,6 +75,7 @@ const NavCelular = () => {
                       {user.name} {user.lastname}{" "}
                     </p>
                   </div>
+                  </Link>
                 </>
               ) : (
                 <>
@@ -87,6 +93,7 @@ const NavCelular = () => {
                 />
                 <p className="li-x">Inicio</p>
               </li>
+              <Link to="/">
               <li className="li-p">
                 <GridViewOutlinedIcon
                   sx={{ fontSize: 16 }}
@@ -94,6 +101,7 @@ const NavCelular = () => {
                 />
                 <p className="li-x">Descubre</p>
               </li>
+              </Link>
               <li className="li-p">
                 <WebIcon sx={{ fontSize: 17 }} style={{ color: "#4a4a4a" }} />
                 <p className="li-x">Colecciones</p>
