@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import NavCelular from "../components/NavCelular";
@@ -81,7 +82,9 @@ const MiLienzo = () => {
             <li className="ajustes-li" onClick={handleOpen}>
               Editar portada
             </li>
-            <li className="ajustes-li-dos">Editar perfil</li>
+            <Link to="/editar_perfil">
+              <li className="ajustes-li-dos">Editar perfil</li>
+            </Link>
             <Modal open={open} onClose={handleClose}>
               <div className="modal-portada">
                 <form className="modal-contenedor-dos" onSubmit={handleSubmit}>
