@@ -5,6 +5,7 @@ import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MiLienzo from "./pages/MiLienzo";
+import EditarPerfil from "./pages/EditarPerfil";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -18,6 +19,8 @@ const App = () => {
       });
   }, []);
 
+  console.log(user);
+
   return (
     <>
       <Routes>
@@ -25,6 +28,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/registrarme" element={<Register />} />
         <Route path="/mi_lienzo" element={<MiLienzo />} />
+        <Route path="/editar_perfil" element={<EditarPerfil />} />
       </Routes>
     </>
   );
