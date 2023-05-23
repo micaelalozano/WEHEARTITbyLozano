@@ -194,6 +194,21 @@
   color: #ff4477;
 }
 
+/*{ EDITAR PERFIL }*/
+
+.confi {
+  display: flex;
+  margin: 3em 3.5em;  
+  font-weight: 100;
+  font-size: 13px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.h1-confi {
+  color: #4a4a4a;
+  font-weight: 300;
+}
+
 @media screen and (min-width: 1150px) {
   .navcelular-contenedor {
     display: none;
@@ -231,5 +246,20 @@
   .modal-contenedor {
     width: 100%;
     max-width: 60%;
+  }
+
+  /*{ EDITAR PERFIL }*/
+
+  .confi {
+    display: flex;
+    margin: 3.5em 1.5em;  
+    font-weight: 100;
+    font-size: 10px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .h1-confi {
+    color: #4a4a4ae1;
+    font-weight: 300;
   }
 }
