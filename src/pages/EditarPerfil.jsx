@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import NavCelular from "../components/NavCelular";
+import Cuenta from "../components/Cuenta";
 import { Tabs, Tab } from "baseui/tabs-motion";
 //Estilos
 import "../estilos/navCelular.css";
@@ -26,19 +27,21 @@ const EditarPerfil = () => {
             style: {
               margin: "0em 3em",
               "@media screen and (max-width: 600px)": {
-                margin: "0em 1em",              
+                margin: "0em 1em",
               },
             },
           },
           TabHighlight: {
             style: ({ $theme }) => ({
               outline: `#ff4477`,
-              backgroundColor: "#ff4477"
-            })
-          }
+              backgroundColor: "#ff4477",
+            }),
+          },
         }}
       >
-        <Tab title="Cuenta">Content 1</Tab>
+        <Tab title="Cuenta">
+          <Cuenta />
+        </Tab>
         <Tab title="Fotografía">Content 2</Tab>
         <Tab title="Mis publicaciones">Content 3</Tab>
       </Tabs>
