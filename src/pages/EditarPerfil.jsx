@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import NavCelular from "../components/NavCelular";
 import Cuenta from "../components/Cuenta";
+import Fotografia from "../components/Fotografia";
+import MisPublicaciones from "../components/MisPublicaciones";
 import { Tabs, Tab } from "baseui/tabs-motion";
 //Estilos
 import "../estilos/navCelular.css";
@@ -42,8 +44,12 @@ const EditarPerfil = () => {
         <Tab title="Cuenta">
           <Cuenta />
         </Tab>
-        <Tab title="Fotografía">Content 2</Tab>
-        <Tab title="Mis publicaciones">Content 3</Tab>
+        <Tab title="Fotografía">
+          <Fotografia />
+        </Tab>
+        <Tab title="Mis publicaciones">
+          <MisPublicaciones />
+        </Tab>
       </Tabs>
     </>
   );
