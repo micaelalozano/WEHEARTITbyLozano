@@ -77,7 +77,7 @@ const MiLienzo = () => {
             <li className="li-lienzo">Siguiendoa a 0</li>
             <li className="li-lienzo">0 seguidores</li>
           </ul>
-          <p onClick={handleClick}>Ajustes</p>
+          <p onClick={handleClick} className="lienzo-ajustes">Ajustes</p>
           <ul className={click ? "menu-ajustes" : "none"}>
             <li className="ajustes-li" onClick={handleOpen}>
               Editar portada
@@ -134,6 +134,8 @@ const MiLienzo = () => {
           <h1 className="h1-username">{user.username}</h1>
         </div>
       </div>
+      <p className="lienzo-biografia"> {user.biografia} </p>
+      <p className="lienzo-ubicacion"> {user.ubicacion} </p>
     </>
   );
 };

@@ -68,6 +68,19 @@ router.put("/cambiar_portada/:id", (req, res) => {
   });
 });
 
+//Actualizar usuarios (Cambiar datos de usuario):
+router.put("/configuraciones/:id", (req, res) => {
+  const { id } = req.params;
+  const { username, email, biografia, ubicacion } = req.body;
+
+  Users.update(
+    { username, email, biografia, ubicacion },
+    { where: { id } }
+  ).then((data) => {
+    res.status(200).send(data);
+  });
+});
+
 //Eliminar usuarios:
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
