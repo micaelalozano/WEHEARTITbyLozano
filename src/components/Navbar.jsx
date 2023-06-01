@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import heart from "../assets/heart.png";
 import { useNavigate } from "react-router";
+import { Modal, Backdrop } from "@mui/material";
+import NuevaPublicacion from "./NuevaPublicacion";
 //Iconos
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
@@ -23,6 +25,10 @@ const Navbar = () => {
   const [user, setUser] = useState({});
   const [click, setClick] = useState(false);
   const [secondClick, setSecondClick] = useState(false);
+  //MODAL
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleClick = () => setClick(!click);
   const handleSecondClick = () => setSecondClick(!secondClick);
@@ -60,13 +66,13 @@ const Navbar = () => {
             <p className="nav-p">Inicio</p>
           </li>
           <Link to="/">
-          <li className="nav-li">
-            <GridViewOutlinedIcon
-              sx={{ fontSize: 21 }}
-              style={{ color: "#4a4a4a" }}
-            />
-            <p className="nav-p">Descubre</p>
-          </li>
+            <li className="nav-li">
+              <GridViewOutlinedIcon
+                sx={{ fontSize: 21 }}
+                style={{ color: "#4a4a4a" }}
+              />
+              <p className="nav-p">Descubre</p>
+            </li>
           </Link>
           <li className="nav-li">
             <LocalFloristOutlinedIcon
@@ -109,8 +115,19 @@ const Navbar = () => {
             <AddOutlinedIcon
               sx={{ fontSize: 18 }}
               style={{ color: "#ff4477" }}
+              onClick={handleOpen}
             />
-            <p className="nav-publicacion">Nueva publicación</p>
+            <p className="nav-publicacion" onClick={handleOpen}>
+              Nueva publicación
+            </p>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              BackdropComponent={Backdrop}
+              BackdropProps={{ onClick: handleClose }}
+            >
+              <NuevaPublicacion cerrarModal={handleClose} />
+            </Modal>
           </div>
           <li className="nav-li-icons">
             <span className="tooltip" mensaje="Mensajes">

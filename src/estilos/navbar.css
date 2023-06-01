@@ -85,6 +85,7 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  cursor: pointer;
 }
 
 .nav-publicacion {
@@ -92,6 +93,7 @@
   font-weight: 500;
   margin-top: 3px;
   color: #ff4477;
+  cursor: pointer;
 }
 
 .nav-icons {
