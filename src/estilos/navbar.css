@@ -115,6 +115,7 @@
 }
 
 .img-perfil {
+  object-fit: cover;
   width: 33px;
   height: 33px;
   border-radius: 100%;

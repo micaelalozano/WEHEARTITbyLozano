@@ -17,11 +17,17 @@ Publicaciones.init(
     descripcion: {
       type: Sequelize.DataTypes.TEXT,
       allowNull: true,
-    }
+    },
+    userId: {
+      type: Sequelize.DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Users,
+        key: "id",
+      },
+    },
   },
   { sequelize: db, modelName: "publicaciones" }
 );
-
-Publicaciones.belongsTo(Users, { through: "publicacion_creador" });
 
 module.exports = Publicaciones;
