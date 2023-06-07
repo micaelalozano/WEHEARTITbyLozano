@@ -1,7 +1,7 @@
 const Users = require("./Users");
 const Publicaciones = require("./Publicaciones");
 
-Users.belongsToMany(Publicaciones,{through: "publicacion_creador"})
-Publicaciones.belongsToMany(Users,{through: "publicacion_creador"})
+Users.hasMany(Publicaciones, { foreignKey: 'userId' });
+Publicaciones.belongsTo(Users, { foreignKey: 'userId' });
 
 module.exports = { Users, Publicaciones };
