@@ -17,6 +17,7 @@ import { RiChat3Line } from "react-icons/ri";
 import { BiBell } from "react-icons/bi";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { RiCloseCircleFill } from "react-icons/ri";
 //Estilos
 import "../estilos/navbar.css";
 
@@ -120,14 +121,44 @@ const Navbar = () => {
             <p className="nav-publicacion" onClick={handleOpen}>
               Nueva publicación
             </p>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              BackdropComponent={Backdrop}
-              BackdropProps={{ onClick: handleClose }}
-            >
-              <NuevaPublicacion cerrarModal={handleClose} />
-            </Modal>
+            {user.username ? (
+              <Modal
+                open={open}
+                onClose={handleClose}
+                BackdropComponent={Backdrop}
+                BackdropProps={{ onClick: handleClose }}
+              >
+                <NuevaPublicacion cerrarModal={handleClose} />
+              </Modal>
+            ) : (
+              <Modal
+                open={open}
+                onClose={handleClose}
+                BackdropComponent={Backdrop}
+                BackdropProps={{ onClick: handleClose }}
+              >
+                <div className="modal-publicacion">
+                  <div className="div-close-post">
+                    <RiCloseCircleFill
+                      className="close"
+                      size={20}
+                      color="#ffffff"
+                      onClick={handleClose}
+                    />
+                  </div>
+                  <div className="form-no-post">
+                    <p className="nav-post">
+                      Debes iniciar sesión para subir una publicación
+                    </p>
+                    <Link to="/login">
+                      <p className="click-sesion">
+                        Haz click aqui para iniciar sesión
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              </Modal>
+            )}
           </div>
           <li className="nav-li-icons">
             <span className="tooltip" mensaje="Mensajes">
