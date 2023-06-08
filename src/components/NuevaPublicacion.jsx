@@ -12,7 +12,7 @@ const NuevaPublicacion = ({ cerrarModal }) => {
     <>
       <div className="modal-publicacion">
         <div className="div-close">
-          <RiCloseCircleFill className="close" size={20} color="#ffffff" onClick={handleCloseClick} />{" "}
+          <RiCloseCircleFill className="close" size={20} color="#ffffff" onClick={handleCloseClick} />
         </div>
         <form className="form-publicacion">
             <p>Crear nueva publicación</p>

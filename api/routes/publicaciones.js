@@ -3,7 +3,7 @@ const { Users, Publicaciones } = require("../models");
 const router = express.Router();
 
 // Crear publicación:
-router.post("/crear_publicacion/:userId", (req, res) => {
+router.post("/:userId", (req, res) => {
   const { userId } = req.params;
   const { imagen, name, descripcion } = req.body;
 
@@ -22,8 +22,15 @@ router.post("/crear_publicacion/:userId", (req, res) => {
     });
 });
 
+// Ver TODAS las publicaciones:
+router.get("/", (req, res) => {
+  Publicaciones.findAll().then((data) => {
+    res.status(200).send(data);
+  });
+});
+
 // Ver las publicaciones por usuario:
-router.get("/mis_publicaciones/:userId", (req, res) => {
+router.get("/:userId", (req, res) => {
   const { userId } = req.params;
 
   Publicaciones.findAll({
