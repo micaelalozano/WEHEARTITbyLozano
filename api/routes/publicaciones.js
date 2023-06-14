@@ -48,4 +48,17 @@ router.get("/:userId", (req, res) => {
     });
 });
 
+// Eliminar todas las publicaciones:
+router.delete("/", (req, res) => {
+  Publicaciones.destroy({ where: {} })
+    .then(() => {
+      res.send("Todas las publicaciones han sido eliminadas.");
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error al eliminar las publicaciones: " + error.message);
+    });
+});
+
+
 module.exports = router;

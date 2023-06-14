@@ -6,6 +6,8 @@ import App from "./App";
 import "./index.css";
 import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const debug =
   process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
@@ -17,6 +19,7 @@ ReactDOM.render(
     <AuthProvider>
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
         <App />
+        <ToastContainer />
       </StyletronProvider>
     </AuthProvider>
   </BrowserRouter>,
