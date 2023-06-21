@@ -29,6 +29,11 @@
   color: #4a4a4a;
   background-color: white;
   margin-right: 25px;
+  cursor: pointer;
+}
+
+.nav-li:hover {
+  color: #ff4477;
 }
 
 .nav-p {
@@ -195,7 +200,7 @@
   margin-bottom: 3px;
   padding: 10px 0;
   width: 90%;
-  background: linear-gradient(to bottom right, #FF2F97, #FF9159);
+  background: linear-gradient(to bottom right, #ff2f97, #ff9159);
   border-radius: 5px;
   color: white;
   border: none;
@@ -221,14 +226,14 @@
   max-width: 400px;
 }
 
-.nav-post{
+.nav-post {
   display: flex;
   justify-content: center;
   text-align: center;
   margin-bottom: 2px;
 }
 
-.click-sesion{
+.click-sesion {
   display: flex;
   justify-content: center;
   text-align: center;

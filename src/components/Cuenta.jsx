@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 //Estilos
 import "../estilos/cuenta.css";
 
@@ -16,7 +18,7 @@ const Cuenta = () => {
       .then((res) => res.data)
       .then((user) => {
         setUser(user);
-        setUsername(user.username); // Establecer el valor inicial del nombre de usuario en el estado local
+        setUsername(user.username); 
         setEmail(user.email);
         setBiografia(user.biografia);
         setUbicacion(user.ubicacion);
@@ -33,14 +35,26 @@ const Cuenta = () => {
       )
       .then((res) => res.data)
       .then((data) => {
-        window.location.reload();
+        toast.success("Actualizando cambios!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       })
       .catch((err) => {
         window.alert("ERROR");
       });
   };
 
-  console.log("biografia",ubicacion);
+  console.log("biografia", ubicacion);
 
   return (
     <>
