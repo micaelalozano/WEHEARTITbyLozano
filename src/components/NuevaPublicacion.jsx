@@ -101,7 +101,7 @@ const NuevaPublicacion = ({ cerrarModal }) => {
               value={descripcion}
             />
           </div>
-          <button className="create-btn">Crear publicacion</button>
+          <button className="create-btn">Crear publicación</button>
         </form>
       </div>
       <ToastContainer />

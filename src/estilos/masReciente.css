@@ -46,6 +46,7 @@
 .img-art {
   width: 100%;
   height: 190px;
+  object-fit: cover;
 }
 
 .reciente-texto {
